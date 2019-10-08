@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  username: string;
 
-  constructor() { }
+  constructor(private loginService: LoginService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  login() {
+    this.loginService.getUserByUsername(this.username).subscribe(result => {
+      console.log(result);
+      if (result && result.length > 0) {
+        this.loginService.setUser(result);
+      } else {
+        alert('User not found');
+      }
+    });
   }
-
 }

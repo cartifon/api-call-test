@@ -1,8 +1,8 @@
 <div class="login-container">
   <mat-form-field>
-    <input matInput placeholder="Username" value="">
+    <input required matInput placeholder="Username" value="" [(ngModel)]="username">
   </mat-form-field>
   <div class="login-button">
-    <button mat-raised-button>Login</button>
+    <button mat-raised-button (click)="login()">Login</button>
   </div>
 </div>
