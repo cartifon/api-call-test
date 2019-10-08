@@ -1,0 +1,15 @@
+.login {
+  &-container {
+    top: 40%;
+    left: 30%;
+    margin: 0 auto;
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &-button {
+    padding-left: 10px;
+  }
+}
