@@ -8,7 +8,9 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
+  searchPost: string;
   posts = [];
+  filteredPosts = [];
   user: any;
 
   constructor(private apiService: ApiService, private userService: UserService) {}
@@ -23,6 +25,13 @@ export class PostComponent implements OnInit {
           console.log(this.posts);
         });
       });
+    });
+  }
+
+  filter() {
+    const regex = new RegExp('\\b(' + this.searchPost + ')\\b');
+    this.filteredPosts = this.posts.filter(post => {
+      return regex.test(post.title) || regex.test(post.body);
     });
   }
 }
