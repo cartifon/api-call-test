@@ -18,4 +18,9 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/posts?userId=${userId}`);
   }
 
+  getCommentsByPostId(postId): Observable<any>  {
+    return this.http.get(`${this.baseUrl}/comments?postId=${postId}`);
+  }
+
+
 }

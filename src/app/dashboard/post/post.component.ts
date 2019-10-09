@@ -8,7 +8,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  posts: any;
+  posts = [];
   user: any;
 
   constructor(private apiService: ApiService, private userService: UserService) {}
@@ -16,8 +16,13 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.user = this.userService.getUser();
     this.apiService.getPostsByUserId(this.user.id).subscribe(posts => {
-      this.posts = posts;
-      console.log(this.posts);
+      posts.forEach(post => {
+        this.apiService.getCommentsByPostId(post.id).subscribe(comments => {
+          post.comments = comments;
+          this.posts.push(post);
+          console.log(this.posts);
+        });
+      });
     });
   }
 }
