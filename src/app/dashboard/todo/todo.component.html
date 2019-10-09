@@ -1,1 +1,13 @@
-<p>todo works!</p>
+<div class="todo-container">
+  <div class="todo-header">
+    <h2>To Do List</h2>
+    <div class="togle">
+      <mat-slide-toggle [(ngModel)]="showCompleted">Show Completed</mat-slide-toggle>
+    </div>
+  </div>
+  <div class="todo-list">
+    <ng-container *ngFor="let todo of todos">
+      <mat-checkbox *ngIf="!todo.completed || showCompleted" [(ngModel)]="todo.completed">{{ todo.title}}</mat-checkbox>
+    </ng-container>
+  </div>
+</div>

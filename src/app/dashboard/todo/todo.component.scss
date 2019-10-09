@@ -1,0 +1,14 @@
+.todo-container {
+
+  .todo-list {
+    display: flex;
+    flex-direction: column;
+    padding: 13px;
+    border: solid 3px black;
+  }
+
+  .todo-header {
+    display: flex;
+    justify-content: space-between
+  }
+}

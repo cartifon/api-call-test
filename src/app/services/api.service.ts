@@ -14,13 +14,15 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/users?username=${username}`);
   }
 
-  getPostsByUserId(userId): Observable<any>  {
+  getPostsByUserId(userId): Observable<any> {
     return this.http.get(`${this.baseUrl}/posts?userId=${userId}`);
   }
 
-  getCommentsByPostId(postId): Observable<any>  {
+  getCommentsByPostId(postId): Observable<any> {
     return this.http.get(`${this.baseUrl}/comments?postId=${postId}`);
   }
 
-
+  getToDoByUserId(userId): Observable<any> {
+    return this.http.get(`${this.baseUrl}/todos?userId=${userId}`);
+  }
 }
