@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loginService.getUserByUsername(this.username).subscribe(result => {
-      console.log(result);
       if (result && result.length > 0) {
         this.userService.setUser(result[0]);
         this.router.navigate(['dashboard']);

@@ -22,7 +22,6 @@ export class PostComponent implements OnInit {
         this.apiService.getCommentsByPostId(post.id).subscribe(comments => {
           post.comments = comments;
           this.posts.push(post);
-          console.log(this.posts);
         });
       });
     });
