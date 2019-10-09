@@ -2,10 +2,6 @@
   padding: 13px;
   height: 100%;
   background: white;
-
-  .spacer {
-    flex: 1 1 auto;
-  }
 }
 
 .header {
@@ -13,4 +9,12 @@
   top: 0;
   left: 0;
   right: 0;
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .company-name {
+    font-size: 14px;
+    padding-left: 13px;;
+  }
 }

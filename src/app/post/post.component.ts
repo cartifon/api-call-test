@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-post',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  posts: any;
+  user: any;
+
+  constructor(private apiService: ApiService, private userService: UserService) { }
 
   ngOnInit() {
+    this.user = this.userService.getUser();
+    this.posts = this.apiService.getPostsByUserId(this.user.id);
+    console.log(this.posts);
+
   }
 
 }
